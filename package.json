@@ -2,11 +2,12 @@
    "name": "@binarion/event-bus",
    "private": false,
    "description": "Simple Event Bus library built for any JavaScript application",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "homepage": "https://github.com/GreyAdmiral/event-bus",
    "repository": "https://github.com/GreyAdmiral/event-bus.git",
    "author": "Binarion (https://greyadmiral.github.io/)",
    "main": "dist/index.js",
+   "browser": "dist/event-bus.min.js",
    "keywords": [
       "plugin",
       "events",
