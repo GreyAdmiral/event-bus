@@ -1,0 +1,28 @@
+{
+   "name": "@binarion/event-bus",
+   "private": false,
+   "description": "Simple Event Bus library built for any JavaScript application",
+   "version": "1.0.0",
+   "homepage": "https://github.com/GreyAdmiral/event-bus",
+   "repository": "https://github.com/GreyAdmiral/event-bus.git",
+   "author": "Binarion (https://greyadmiral.github.io/)",
+   "main": "dist/index.js",
+   "keywords": [
+      "plugin",
+      "events",
+      "event-bus",
+      "event-bus-js"
+   ],
+   "license": "MIT",
+   "scripts": {
+      "build": "rollup -c"
+   },
+   "devDependencies": {
+      "@babel/preset-env": "^7.29.5",
+      "@rollup/plugin-babel": "^7.0.0",
+      "@rollup/plugin-commonjs": "^29.0.2",
+      "@rollup/plugin-json": "^6.1.0",
+      "@rollup/plugin-terser": "^1.0.0",
+      "rollup": "^4.60.4"
+   }
+}
