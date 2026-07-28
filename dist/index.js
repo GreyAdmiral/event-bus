@@ -17,10 +17,7 @@ class EventBus {
       }
 
       this.#listeners[eventType].push(handler);
-
-      return () => {
-         return this.off(eventType, handler);
-      };
+      return this.off.bind(this, eventType, handler);
    }
 
    /**
@@ -31,15 +28,12 @@ class EventBus {
    once(eventType, handler) {
       /** @param  {unknown[]} args */
       const originalHandler = (...args) => {
+         this.off.call(this, eventType, originalHandler);
          handler(...args);
-         this.off(eventType, originalHandler);
       };
 
       this.on(eventType, originalHandler);
-
-      return () => {
-         return this.off(eventType, originalHandler);
-      };
+      return this.off.bind(this, eventType, originalHandler);
    }
 
    /**
@@ -48,19 +42,19 @@ class EventBus {
     * @returns {boolean}
     */
    off(eventType, handler) {
-      const handlers = this.#listeners?.[eventType];
+      const handlers = this.#listeners[eventType];
 
-      if (handlers) {
-         for (let i = 0; i < handlers.length; i++) {
-            if (handlers[i] === handler) {
-               handlers.splice(i--, 1);
+      if (handlers && Array.isArray(handlers)) {
+         const index = handlers.indexOf(handler);
 
-               if (handlers?.length === 0) {
-                  delete this.#listeners[eventType];
-               }
+         if (~index) {
+            handlers.splice(index, 1);
 
-               return true;
+            if (handlers.length === 0) {
+               delete this.#listeners[eventType];
             }
+
+            return true;
          }
       }
 
@@ -75,10 +69,17 @@ class EventBus {
    emit(eventType, ...args) {
       const eventListeners = this.#listeners[eventType];
 
-      if (eventListeners) {
-         eventListeners.forEach((handler) => {
-            handler(...args);
-         });
+      if (eventListeners && Array.isArray(eventListeners)) {
+         const handlers = [...eventListeners];
+
+         for (const handler of handlers) {
+            try {
+               handler(...args);
+            } catch (error) {
+               const message = error instanceof Error ? error.message : String(error);
+               console.error(`Error in EventBus handler for event "${eventType}":`, message);
+            }
+         }
       }
    }
 }
