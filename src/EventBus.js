@@ -42,7 +42,7 @@ export default class EventBus {
    off(eventType, handler) {
       const handlers = this.#listeners[eventType];
 
-      if (handlers && Array.isArray(handlers)) {
+      if (Array.isArray(handlers)) {
          const index = handlers.indexOf(handler);
 
          if (~index) {
@@ -67,7 +67,7 @@ export default class EventBus {
    emit(eventType, ...args) {
       const eventListeners = this.#listeners[eventType];
 
-      if (eventListeners && Array.isArray(eventListeners)) {
+      if (Array.isArray(eventListeners)) {
          const handlers = [...eventListeners];
 
          for (const handler of handlers) {

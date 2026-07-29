@@ -7,13 +7,13 @@
 #### CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@binarion/event-bus@1.0.3/dist/event-bus.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@binarion/event-bus@1.0.4/dist/event-bus.min.js"></script>
 ```
 
 or
 
 ```html
-<script src="https://unpkg.com/@binarion/event-bus@1.0.3/dist/event-bus.min.js"></script>
+<script src="https://unpkg.com/@binarion/event-bus@1.0.4/dist/event-bus.min.js"></script>
 ```
 
 #### Import
@@ -91,7 +91,7 @@ Triggers an event whose name is specified in the first argument of the method an
 #### CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@binarion/event-bus@1.0.3/dist/event-bus.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@binarion/event-bus@1.0.4/dist/event-bus.min.js"></script>
 
 ...
 
