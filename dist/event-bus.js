@@ -80,6 +80,21 @@ class EventBus {
          }
       }
    }
+
+   /**
+    * @param {string} eventType
+    * @returns {void}
+    */
+   clearEvent(eventType) {
+      delete this.#listeners[eventType];
+   }
+
+   /**
+    * @returns {void}
+    */
+   clearAll() {
+      this.#listeners = {};
+   }
 }
 
 export { EventBus as default };

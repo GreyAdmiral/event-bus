@@ -7,13 +7,13 @@
 #### CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@binarion/event-bus@1.0.4/dist/event-bus.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@binarion/event-bus@1.1.5/dist/event-bus.min.js"></script>
 ```
 
 or
 
 ```html
-<script src="https://unpkg.com/@binarion/event-bus@1.0.4/dist/event-bus.min.js"></script>
+<script src="https://unpkg.com/@binarion/event-bus@1.1.5/dist/event-bus.min.js"></script>
 ```
 
 #### Import
@@ -86,12 +86,32 @@ Disables execution of the handler function specified in the second argument of t
 
 Triggers an event whose name is specified in the first argument of the method and passes all other arguments to the handler function.
 
+### clearEvent
+
+##### Arguments:
+
+1. The name (can be absolutely anything) of the custom event whose handlers should be removed.
+
+##### Description:
+
+Removes the specified event from the event bus.
+
+### clearAll
+
+##### Arguments:
+
+There are no arguments.
+
+##### Description:
+
+Removes all events from the event bus.
+
 ## Usage
 
 #### CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@binarion/event-bus@1.0.4/dist/event-bus.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@binarion/event-bus@1.1.5/dist/event-bus.min.js"></script>
 
 ...
 
@@ -159,5 +179,5 @@ eventBus.on(customEventName, testCb);
 
 ...
 
-eventBus.emit(customEventName);
+eventBus.emit(customEventName, customEventName);
 ```
